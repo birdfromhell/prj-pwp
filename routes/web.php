@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\JenisController;
 use Illuminate\Support\Facades\Route;
 
 /*

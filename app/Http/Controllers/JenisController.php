@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Hash;
 use App\Models\Jenis;
 use Illuminate\Http\Request;
 
@@ -12,7 +14,8 @@ class JenisController extends Controller
      */
     public function index()
     {
-        //
+        $jenis = DB::table('xtb_jenis_barang')->get();
+        return view ('jenis/index', compact('jenis'));
     }
 
     /**
