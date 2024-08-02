@@ -3,23 +3,16 @@
 use App\Http\Controllers\JenisController;
 use Illuminate\Support\Facades\Route;
 
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider and all of them will
-| be assigned to the "web" middleware group. Make something great!
-|
-*/
-
 Route::get('/', function () {
-    return view('welcome',['title' => 'Welcome']);
+    return view('welcome', ['title' => 'Aplikasi penjualan barang berbasis web dengan Framework Laravel']);
 });
 
-Route::get('home', function () {
+Route::get('home', function(){
     return view('home');
 });
 
+//Data Jenis Barang
 Route::get('jenis', [JenisController::class, 'index'])->name('jenis.index');
+
+//menghapus data jenis
+Route::delete('jenis/{id_jenis}', [JenisController::class, 'destroy'])->name('jenis.destroy');
