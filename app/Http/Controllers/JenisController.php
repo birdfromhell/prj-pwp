@@ -10,7 +10,8 @@ use Illuminate\Http\Request;
 class JenisController extends Controller
 {
     /**
-     * Display a listing of the resource.
+     * Display a listing of the res
+     * ource.
      */
     public function index()
     {
@@ -23,7 +24,7 @@ class JenisController extends Controller
      */
     public function create()
     {
-        //
+        return view('jenis/create');
     }
 
     /**
@@ -31,7 +32,17 @@ class JenisController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        try 
+        {
+             $query=DB::table('xtb_jenis_barang')->insert([
+                'id_jenis' => $request ->id_jenis,  
+                'jenis_barang' => $request ->jenis_barang 
+                ]);  
+            return  redirect('jenis')-> with ('status', 'jenis berhasil ditambah..'); 
+        } 
+                catch(\Illuminate\Database\QueryException $ex){  
+                return  redirect('jenis')-> with ('status', $ex); 
+            } 
     }
 
     /**
@@ -39,7 +50,8 @@ class JenisController extends Controller
      */
     public function show(Jenis $jenis)
     {
-        //
+         $jenis = DB::table('xtb_jenis_barang')->get();
+        return view('jenis/index', compact('jenis'));
     }
 
     /**

@@ -13,6 +13,7 @@ Route::get('home', function(){
 
 //Data Jenis Barang
 Route::get('jenis', [JenisController::class, 'index'])->name('jenis.index');
-
-//menghapus data jenis
+Route::get('jenis/create', [JenisController::class, 'create'])->name('jenis.create');
+Route::post('jenis', [JenisController::class, 'store'])->name('jenis.store'); 
 Route::delete('jenis/{id_jenis}', [JenisController::class, 'destroy'])->name('jenis.destroy');
+Route::get('jenis/show', [JenisController::class, 'show'])->name('jenis.show');
