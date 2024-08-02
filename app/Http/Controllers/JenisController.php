@@ -10,13 +10,12 @@ use Illuminate\Http\Request;
 class JenisController extends Controller
 {
     /**
-     * Display a listing of the res
-     * ource.
+     * Display a listing of the resource.
      */
     public function index()
     {
         $jenis = DB::table('xtb_jenis_barang')->get();
-        return view ('jenis/index', compact('jenis'));
+        return view('jenis/index', compact('jenis'));
     }
 
     /**
@@ -34,15 +33,17 @@ class JenisController extends Controller
     {
         try 
         {
-             $query=DB::table('xtb_jenis_barang')->insert([
+                $query=DB::table('xtb_jenis_barang')->insert([
                 'id_jenis' => $request ->id_jenis,  
                 'jenis_barang' => $request ->jenis_barang 
-                ]);  
+                ]); 
+
+                
             return  redirect('jenis')-> with ('status', 'jenis berhasil ditambah..'); 
         } 
                 catch(\Illuminate\Database\QueryException $ex){  
                 return  redirect('jenis')-> with ('status', $ex); 
-            } 
+            }
     }
 
     /**
@@ -50,8 +51,8 @@ class JenisController extends Controller
      */
     public function show(Jenis $jenis)
     {
-         $jenis = DB::table('xtb_jenis_barang')->get();
-        return view('jenis/index', compact('jenis'));
+        $jenis = DB::table('xtb_jenis_barang')->get();
+        return view('jenis/show', compact('jenis'));
     }
 
     /**
@@ -73,8 +74,9 @@ class JenisController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Jenis $jenis)
+    public function destroy(string $id_jenis)
     {
-        //
+        $jenis = DB::table('xtb_jenis_barang')->where('id_jenis', $id_jenis)->delete();      
+        return  redirect('jenis')-> with ('status', 'Data jenis berhasil dihapus..');
     }
 }

@@ -89,12 +89,12 @@
                             </a>
                         </li>
                         <li>
-                            <a href="./index.php?aksi=Components&xaksi=Suplier&yaksi=1">
+                            <a href="{{ url('suplier') }}">
                                 <i class="bi bi-circle"></i><span>Suplier</span>
                             </a>
                         </li>
                         <li>
-                            <a href="./index.php?aksi=Components&xaksi=Barang&yaksi=1">
+                            <a href="{{ url('barang') }}">
                                 <i class="bi bi-circle"></i><span>Barang</span>
                             </a>
                         </li>
