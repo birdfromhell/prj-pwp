@@ -58,17 +58,26 @@ class JenisController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Jenis $jenis)
+    public function edit(string $id_jenis)
     {
-        //
+        $jenis = DB::table('xtb_jenis_barang')->where('id_jenis', $id_jenis)->first();
+        return view('jenis/edit', compact('jenis'));
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Jenis $jenis)
+    public function update(Request $request, string $id_jenis)
     {
-        //
+        try {
+            $affected = DB::table('xtb_jenis_barang')->where('id_jenis', $id_jenis)
+                ->update([
+                    'jenis_barang' => $request->jenis_barang
+                ]);
+            return  redirect('jenis')->with('status', 'jenis berhasil diubah..');
+        } catch (\Illuminate\Database\QueryException $ex) {
+            return  redirect('jenis')->with('status', 'jenis gagal ditambah..');
+        }
     }
 
     /**

@@ -14,11 +14,14 @@ Route::get('home', function(){
 });
 
 //Data Jenis Barang
+//Data Jenis Barang
 Route::get('jenis', [JenisController::class, 'index'])->name('jenis.index');
 Route::get('jenis/create', [JenisController::class, 'create'])->name('jenis.create');
 Route::post('jenis', [JenisController::class, 'store'])->name('jenis.store'); 
 Route::delete('jenis/{id_jenis}', [JenisController::class, 'destroy'])->name('jenis.destroy');
 Route::get('jenis/show', [JenisController::class, 'show'])->name('jenis.show');
+Route::get('jenis/{id_jenis}/edit', [JenisController::class, 'edit'])->name('jenis.edit');
+Route::put('jenis/{id_jenis}', [JenisController::class, 'update'])->name('jenis.update');
 
 //Data Suplier  
 Route::get('suplier', [SuplierController::class, 'index'])->name('suplier.index');
