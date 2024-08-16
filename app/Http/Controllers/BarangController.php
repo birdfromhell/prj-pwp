@@ -15,7 +15,7 @@ class BarangController extends Controller
     public function index()
     {
         //dd('index');
-        $barang = DB::table('xtb_barang')->get();
+        $barang = DB::table('v_barang')->get();
         return view('barang/index', compact('barang'));  //passing parameter asosiasi
     }
 
@@ -24,7 +24,10 @@ class BarangController extends Controller
      */
     public function create()
     {
-        return view('barang/create');
+        $jenis = DB::table('xtb_jenis_barang')->get();
+        $pengguna = DB::table('xtb_userx')->get();
+
+        return view('barang/create', compact('jenis'), compact('pengguna'));
     }
 
     /**
@@ -67,6 +70,8 @@ class BarangController extends Controller
     public function edit(string $kode_barang)
     {
         // dd('edit');
+        $barang = DB::table('xtb_barang')->where('kode_barang', $kode_barang)->first();
+        return  view('barang/edit', compact('barang'));
     }
 
     /**
@@ -74,7 +79,22 @@ class BarangController extends Controller
      */
     public function update(Request $request, string $kode_barang)
     {
-        // dd('update'); 
+        try {
+            $affected = DB::table('xtb_barang')->where('kode_barang', $kode_barang)
+                ->update([
+                    'kode_barang' => $request->kode_barang,
+                    'nama_barang' => $request->nama_barang,
+                    'satuan' => $request->satuan,
+                    'stok' => $request->stok,
+                    'harga_jual' => $request->harga_jual,
+                    'id_jenis' => $request->id_jenis,
+                    'jenis_barang' => $request->jenis_barang,
+                    'user_id' => $request->user_id
+                ]);
+            return  redirect('barang')->with('status', 'barang berhasil diubah..');
+        } catch (\Illuminate\Database\QueryException $ex) {
+            return  redirect('barang')->with('status', 'barang gagal ditambah..');
+        }
     }
 
     /**

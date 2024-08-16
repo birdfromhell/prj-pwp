@@ -109,7 +109,7 @@
                     </a>
                     <ul class="nav-content collapse " data-bs-parent="#sidebar-nav" id="forms-nav">
                         <li>
-                            <a href="./index.php?aksi=Transaksi&xaksi=Pembelian&yaksi=1">
+                            <a href="{{url('pembelian')}}">
                                 <i class="bi bi-circle"></i><span>Pembelian</span>
                             </a>
                         </li>

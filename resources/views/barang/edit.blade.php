@@ -1,12 +1,12 @@
 @extends('main')
-@section('title', 'Data Suplier')
+@section('title', 'Data Barang')
 @section('breadcrumbs')
     <main class="main" id="main">
         <div class="pagetitle">
             <nav>
                 <ol class="breadcrumb">
                     <li class="breadcrumb-item"><a href="./anggotas">Master Data</a></li>
-                    <li class="breadcrumb-item active">Data Suplier</li>
+                    <li class="breadcrumb-item active">Data Barang</li>
                 </ol>
             </nav>
         </div>
@@ -28,11 +28,11 @@
                                         class="fa fa-text-height" class="fa fa-align-center" width="100%">
                                         <tr>
                                             <td>
-                                                <h5 class="card-title">Ubah Data Suplier</span></h5>
+                                                <h5 class="card-title">Ubah Data Barang</span></h5>
                                             </td>
                                             <td>
                                                 <div align="right"><a class="btn btn-success btn-sm"
-                                                        href="{{ url('./suplier') }}">
+                                                        href="{{ url('./barang') }}">
                                                         <span class="bi bi-arrow-left-circle-fill" style="font-size:16px">
                                                             Back</span></a>
                                                 </div>
@@ -43,45 +43,58 @@
                                     <div class="col-12">
                                         <div class="card recent-sales overflow-auto">
                                             <div class="card-body">
-                                                <form action="{{ url('suplier/' . $suplier->id_suplier) }}"
+                                                <form action="{{ url('barang/' . $barang->kode_barang) }}"
                                                     enctype="multipart/form-data" method="post">
 
                                                     @method('put')
                                                     {{ csrf_field() }}
                                                     <div class="row mb-3">
-                                                        <label class="col-sm-2 col-form-label" for="id_suplier">Id
-                                                            Suplier</label>
+                                                        <label class="col-sm-2 col-form-label" for="kode_barang">Kode
+                                                            Barang</label>
                                                         <div class="col-sm-10">
-                                                            <input autofocus class="form-control" name="id_suplier" readonly
-                                                                required type="text"
-                                                                value="{{ old('id_suplier', $suplier->id_suplier) }}">
+                                                            <input autofocus class="form-control" name="kode_barang"
+                                                                readonly required type="text"
+                                                                value="{{ old('kode_barang', $barang->kode_barang) }}">
                                                         </div>
                                                     </div>
                                                     <div class="row mb-3">
                                                         <label class="col-sm-2 col-form-label" for="nik">Nama
-                                                            Suplier</label>
+                                                            Barang</label>
                                                         <div class="col-sm-10">
-                                                            <input autofocus class="form-control" name="nama_suplier"
+                                                            <input autofocus class="form-control" name="nama_barang"
                                                                 required type="text"
-                                                                value="{{ old('nama_suplier', $suplier->nama_suplier) }}">
+                                                                value="{{ old('nama_barang', $barang->nama_barang) }}">
                                                         </div>
                                                     </div>
                                                     <div class="row mb-3">
-                                                        <label class="col-sm-2 col-form-label" for="nik">Alamat
-                                                            Suplier</label>
+                                                        <label class="col-sm-2 col-form-label" for="nik">Satuan</label>
                                                         <div class="col-sm-10">
-                                                            <input autofocus class="form-control" name="alamat_suplier"
-                                                                required type="text"
-                                                                value="{{ old('alamat_suplier', $suplier->alamat_suplier) }}">
+                                                            <input autofocus class="form-control" name="satuan" required
+                                                                type="text" value="{{ old('satuan', $barang->satuan) }}">
                                                         </div>
                                                     </div>
                                                     <div class="row mb-3">
-                                                        <label class="col-sm-2 col-form-label" for="nik">Telepon
-                                                            Suplier</label>
+                                                        <label class="col-sm-2 col-form-label" for="nik">Stok</label>
                                                         <div class="col-sm-10">
-                                                            <input autofocus class="form-control" name="telepon_suplier"
-                                                                required type="text"
-                                                                value="{{ old('telepon_suplier', $suplier->telepon_suplier) }}">
+                                                            <input autofocus class="form-control" name="stok" required
+                                                                type="text" value="{{ old('stok', $barang->stok) }}">
+                                                        </div>
+                                                    </div>
+                                                    <div class="row mb-3">
+                                                        <label class="col-sm-2 col-form-label" for="nik">Harga
+                                                            Jual</label>
+                                                        <div class="col-sm-10">
+                                                            <input autofocus class="form-control" name="harga_jual" required
+                                                                type="text"
+                                                                value="{{ old('harga_jual', $barang->harga_jual) }}">
+                                                        </div>
+                                                    </div>
+                                                    <div class="row mb-3">
+                                                        <label class="col-sm-2 col-form-label" for="nik">Jenis Barang</label>
+                                                        <div class="col-sm-10">
+                                                            <input autofocus class="form-control" name="id_jenis" required
+                                                                type="text"
+                                                                value="{{ old('id_jenis', $barang->id_jenis) }}">
                                                         </div>
                                                     </div>
 

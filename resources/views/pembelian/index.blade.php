@@ -6,7 +6,7 @@
             <nav>
                 <ol class="breadcrumb">
                     <li class="breadcrumb-item"><a href="./anggotas">Master Data</a></li>
-                    <li class="breadcrumb-item active">Data Barang</li>
+                    <li class="breadcrumb-item active">Data Pembelian</li>
                 </ol>
             </nav>
         </div>
@@ -28,16 +28,16 @@
                                     <table border="0" cellpadding="0" cellspacing="0" width="100%">
                                         <tr>
                                             <td>
-                                                <h5 class="card-title">Data Barang</span></h5>
+                                                <h5 class="card-title">Data Pembelian</span></h5>
                                             </td>
                                             <td>
                                                 <div align="right">
                                                     <a aria-disabled="true" class="btn btn-success btn-sm"
-                                                        href="{{ url('barang/show') }}" role="button">
+                                                        href="{{ url('pembelian/show') }}" role="button">
                                                         <span class="bi bi-printer" style="font-size:16px"> Print
                                                             Data</span>
                                                     </a>
-                                                    <a class="btn btn-success btn-sm" href="{{ url('barang/create') }}">
+                                                    <a class="btn btn-success btn-sm" href="{{ url('pembelian/create') }}">
                                                         <span class="bi bi-plus-circle" style="font-size:16px"> New</span>
                                                     </a>
                                                 </div>
@@ -50,36 +50,38 @@
                                         <thead>
                                             <tr>
                                                 <th>No.</th>
+                                                <th>Nofak Beli</th>
+                                                <th>Tanggal Beli</th>
+                                                <th>Jumlah Beli</th>
+                                                <th>Harga Beli</th>
                                                 <th>Kode Barang</th>
-                                                <th>Nama Barang</th>
-                                                <th>Satuan</th>
-                                                <th>Stok</th>
                                                 <th>Harga Jual</th>
-                                                <th>Id Jenis</th>
-                                                <th>Nama User</th>
+                                                <th>User ID</th>
+                                                <th>ID Suplier</th>
                                                 <th>Ubah</th>
                                                 <th>Hapus</th>
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            @foreach ($barang as $item)
+                                            @foreach ($pembelian as $item)
                                                 <tr>
                                                     <td>{{ $loop->iteration }}</td>
+                                                    <td>{{ $item->nofak_beli }}</td>
+                                                    <td>{{ $item->tgl_beli }}</td>
+                                                    <td>{{ $item->jumlah_beli }}</td>
+                                                    <td>{{ $item->harga_beli }}</td>
                                                     <td>{{ $item->kode_barang }}</td>
-                                                    <td>{{ $item->nama_barang }}</td>
-                                                    <td>{{ $item->satuan }}</td>
-                                                    <td>{{ $item->stok }}</td>
                                                     <td>{{ $item->harga_jual }}</td>
-                                                    <td>{{ $item->id_jenis }}</td>
-                                                    <td>{{ $item->nm_user }}</td>
+                                                    <td>{{ $item->user_id }}</td>
+                                                    <td>{{ $item->id_suplier }}</td>
                                                     <td>
                                                         <a class="btn btn-success btn-sm"
-                                                            href="{{ url('barang/' . $item->kode_barang . '/edit') }}">
+                                                            href="{{ url('pembelian/' . $item->nofak_beli . '/edit') }}">
                                                             <span class="bi bi-pencil-square"
                                                                 style="font-size:12px"></span></a>
                                                     </td>
                                                     <td>
-                                                        <form action="{{ url('barang/' . $item->kode_barang) }}"
+                                                        <form action="{{ url('pembelian/' . $item->nofak_beli) }}"
                                                             class="d-inline" method="post"
                                                             onsubmit="return confirm('Yakin Hapus Data')">
                                                             @method('delete')
