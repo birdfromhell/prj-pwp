@@ -90,14 +90,16 @@
                                                         </div>
                                                     </div>
                                                     <div class="row mb-3">
-                                                        <label class="col-sm-2 col-form-label" for="nik">Jenis Barang</label>
-                                                        <div class="col-sm-10">
-                                                            <input autofocus class="form-control" name="id_jenis" required
-                                                                type="text"
-                                                                value="{{ old('id_jenis', $barang->id_jenis) }}">
-                                                        </div>
+                                                            <label for="name" class="col-sm-2 col-form-label">Jenis Barang</label>
+                                                            <div class="col-sm-10">
+                                                              <select class="form-control" id="id_jenis" name="id_jenis">
+                                                              <option value="{{old('id_jenis',$barang->id_jenis) }}">{{old('id_jenis',$barang->id_jenis) }} - {{old('id_jenis',$barang->jenis_barang) }}</option>
+                                                              @foreach ($jenis as $item)
+                                                                <option value='{{$item -> id_jenis}}'>{{$item -> id_jenis}} - {{$item -> jenis_barang}}</option>
+                                                              @endforeach
+                                                              </select>
+                                                               </div>
                                                     </div>
-
 
                                                     <button class="btn btn-success" style="font-size:16px"
                                                         type="submit"><span class="bi bi-pencil-square green-color"> Update

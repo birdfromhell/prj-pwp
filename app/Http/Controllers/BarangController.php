@@ -70,8 +70,11 @@ class BarangController extends Controller
     public function edit(string $kode_barang)
     {
         // dd('edit');
-        $barang = DB::table('xtb_barang')->where('kode_barang', $kode_barang)->first();
-        return  view('barang/edit', compact('barang'));
+        $jenis = DB::table('xtb_jenis_barang')->get();
+        $pengguna = DB::table('xtb_userx')->get();
+        $barang = DB::table('v_barang')->where('kode_barang', $kode_barang)->first();
+
+        return  view('barang/edit', compact('barang', 'jenis','pengguna'));
     }
 
     /**

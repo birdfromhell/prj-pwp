@@ -16,7 +16,11 @@ class PembelianController extends Controller
 
     public function create()
     {
-        return view('pembelian/create');
+        $barang = DB::table('xtb_barang')->get();
+        $suplier = DB::table('xtb_suplier')->get();
+        $user = DB::table('xtb_userx')->get();
+
+        return view('pembelian/create', compact('barang', 'suplier', 'user'));
     }
 
     /**

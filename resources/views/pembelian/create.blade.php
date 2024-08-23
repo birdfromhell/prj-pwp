@@ -85,12 +85,15 @@
                                                         </div>
                                                     </div>
                                                     <div class="row mb-3">
-                                                        <label class="col-sm-2 col-form-label" for="kode_barang">Kode Barang</label>
+                                                        <label class="col-sm-2 col-form-label" for="name">Kode Barang</label>
                                                         <div class="col-sm-10">
-                                                            <input autofocus
-                                                                class="form-control @error('kode_barang') is-invalid @enderror"
-                                                                name="kode_barang" required type="text"
-                                                                value="{{ old('kode_barang') }}">
+                                                            <select class="form-control" id="kode_barang" name="kode_barang">
+                                                                @foreach ($barang as $item)
+                                                                    <option value="{{ $item->kode_barang }}">
+                                                                        {{ $item->kode_barang }} - {{ $item->nama_barang }}
+                                                                    </option>
+                                                                @endforeach
+                                                            </select>
                                                         </div>
                                                     </div>
                                                     <div class="row mb-3">
@@ -103,24 +106,32 @@
                                                         </div>
                                                     </div>
                                                     <div class="row mb-3">
-                                                        <label class="col-sm-2 col-form-label" for="user_id">User
+                                                        <label class="col-sm-2 col-form-label" for="name">User
                                                             Id</label>
                                                         <div class="col-sm-10">
-                                                            <input autofocus
-                                                                class="form-control @error('user_id') is-invalid @enderror"
-                                                                name="user_id" required type="text"
-                                                                value="{{ old('user_id') }}">
+                                                            <select class="form-control" id="user_id" name="user_id">
+                                                                @foreach ($user as $item)
+                                                                    <option value="{{ $item->user_id }}">
+                                                                        {{ $item->user_id }} - {{ $item->nm_user }}
+                                                                    </option>
+                                                                @endforeach
+                                                            </select>
                                                         </div>
                                                     </div>
+
                                                     <div class="row mb-3">
-                                                        <label class="col-sm-2 col-form-label" for="id_suplier">Id Suplier</label>
+                                                        <label class="col-sm-2 col-form-label" for="name">Id Suplier</label>
                                                         <div class="col-sm-10">
-                                                            <input autofocus
-                                                                class="form-control @error('id_suplier') is-invalid @enderror"
-                                                                name="id_suplier" required type="text"
-                                                                value="{{ old('id_suplier') }}">
+                                                            <select class="form-control" id="id_suplier" name="id_suplier">
+                                                                @foreach ($suplier as $item)
+                                                                    <option value="{{ $item->id_suplier }}">
+                                                                        {{ $item->id_suplier }} - {{ $item->nama_suplier }}
+                                                                    </option>
+                                                                @endforeach
+                                                            </select>
                                                         </div>
                                                     </div>
+
                                                     <button class="btn btn-success" style="font-size:16px"
                                                         type="submit"><span class="bi bi-save2 green-color"> Save
                                                         </span></button>

@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\PembelianController;
 use App\Http\Controllers\BarangController;
 use App\Http\Controllers\JenisController;
 use App\Http\Controllers\SuplierController;
@@ -14,7 +15,6 @@ Route::get('home', function(){
 });
 
 //Data Jenis Barang
-//Data Jenis Barang
 Route::get('jenis', [JenisController::class, 'index'])->name('jenis.index');
 Route::get('jenis/create', [JenisController::class, 'create'])->name('jenis.create');
 Route::post('jenis', [JenisController::class, 'store'])->name('jenis.store'); 
@@ -27,6 +27,8 @@ Route::put('jenis/{id_jenis}', [JenisController::class, 'update'])->name('jenis.
 Route::get('suplier', [SuplierController::class, 'index'])->name('suplier.index');
 Route::get('suplier/create', [SuplierController::class, 'create'])->name('suplier.create');
 Route::post('suplier', [SuplierController::class, 'store'])->name('suplier.store'); 
+Route::get('suplier/{id_suplier}/edit', [SuplierController::class, 'edit'])->name('suplier.edit');  
+Route::put('suplier/{id_suplier}', [SuplierController::class, 'update'])->name('suplier.update');
 Route::delete('suplier/{id_suplier}', [SuplierController::class, 'destroy'])->name('suplier.destroy');
 Route::get('suplier/show', [SuplierController::class, 'show'])->name('suplier.show');
 
@@ -34,5 +36,16 @@ Route::get('suplier/show', [SuplierController::class, 'show'])->name('suplier.sh
 Route::get('barang', [BarangController::class, 'index'])->name('barang.index');
 Route::get('barang/create', [BarangController::class, 'create'])->name('barang.create');
 Route::post('barang', [BarangController::class, 'store'])->name('barang.store'); 
-Route::delete('barang/{id_barang}', [BarangController::class, 'destroy'])->name('barang.destroy');
-Route::get('barang/show', [BarangController::class, 'show'])->name('barang.show');
+Route::delete('barang/{kode_barang}', [BarangController::class, 'destroy'])->name('barang.destroy');
+Route::get('barang/show', [BarangController::class, 'show'])->name('barang.show');  
+Route::get('barang/{kode_barang}/edit', [BarangController::class, 'edit'])->name('barang.edit');
+Route::put('barang/{kode_barang}', [BarangController::class, 'update'])->name('barang.update');
+
+//Data Pembelian
+Route::get('pembelian', [PembelianController::class, 'index'])->name('pembelian.index');
+Route::get('pembelian/create', [PembelianController::class, 'create'])->name('pembelian.create');
+Route::post('pembelian', [PembelianController::class, 'store'])->name('pembelian.store'); 
+Route::delete('pembelian/{nofak_beli}', [PembelianController::class, 'destroy'])->name('pembelian.destroy');
+Route::get('pembelian/show', [PembelianController::class, 'show'])->name('pembelian.show');  
+Route::get('pembelian/{nofak_beli}/edit', [PembelianController::class, 'edit'])->name('pembelian.edit');
+Route::put('pembelian/{nofak_beli}', [PembelianController::class, 'update'])->name('pembelian.update');
