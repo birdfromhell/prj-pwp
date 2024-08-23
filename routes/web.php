@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\PembelianController;
+use App\Http\Controllers\PenjualanController;
 use App\Http\Controllers\BarangController;
 use App\Http\Controllers\JenisController;
 use App\Http\Controllers\SuplierController;
@@ -49,3 +50,12 @@ Route::delete('pembelian/{nofak_beli}', [PembelianController::class, 'destroy'])
 Route::get('pembelian/show', [PembelianController::class, 'show'])->name('pembelian.show');  
 Route::get('pembelian/{nofak_beli}/edit', [PembelianController::class, 'edit'])->name('pembelian.edit');
 Route::put('pembelian/{nofak_beli}', [PembelianController::class, 'update'])->name('pembelian.update');
+
+//Data Penjualan
+Route::get('penjualan', [PenjualanController::class, 'index'])->name('penjualan.index');
+Route::get('penjualan/create', [PenjualanController::class, 'create'])->name('penjualan.create');
+Route::post('penjualan', [PenjualanController::class, 'store'])->name('penjualan.store'); 
+Route::delete('penjualan/{nofak_jual}', [PenjualanController::class, 'destroy'])->name('penjualan.destroy');
+Route::get('penjualan/show', [PenjualanController::class, 'show'])->name('penjualan.show');  
+Route::get('penjualan/{nofak_jual}/edit', [PenjualanController::class, 'edit'])->name('penjualan.edit');
+Route::put('penjualan/{nofak_jual}', [PenjualanController::class, 'update'])->name('penjualan.update');
