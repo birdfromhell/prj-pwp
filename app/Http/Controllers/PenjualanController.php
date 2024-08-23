@@ -62,8 +62,10 @@ class PenjualanController extends Controller
     public function edit(string $nofak_jual)
     {
         // dd('edit');
+        $barang = DB::table('xtb_barang')->get();
+        $user = DB::table('xtb_userx')->get();
         $penjualan = DB::table('tbl_jual_barang')->where('nofak_jual', $nofak_jual)->first();
-        return  view('penjualan/edit', compact('penjualan'));
+        return  view('penjualan/edit', compact('penjualan', 'barang', 'user'));
     }
 
     /**

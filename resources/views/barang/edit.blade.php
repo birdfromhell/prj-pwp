@@ -16,7 +16,6 @@
                     <div class="card top-selling overflow-auto">
                         <div class="content mt-3">
                             <div class="animated fadeIn">
-
                                 @if (session('status'))
                                     <div class="alert alert-success">
                                         {{ session('status') }}
@@ -48,6 +47,7 @@
 
                                                     @method('put')
                                                     {{ csrf_field() }}
+
                                                     <div class="row mb-3">
                                                         <label class="col-sm-2 col-form-label" for="kode_barang">Kode
                                                             Barang</label>
@@ -90,15 +90,30 @@
                                                         </div>
                                                     </div>
                                                     <div class="row mb-3">
-                                                            <label for="name" class="col-sm-2 col-form-label">Jenis Barang</label>
-                                                            <div class="col-sm-10">
-                                                              <select class="form-control" id="id_jenis" name="id_jenis">
-                                                              <option value="{{old('id_jenis',$barang->id_jenis) }}">{{old('id_jenis',$barang->id_jenis) }} - {{old('id_jenis',$barang->jenis_barang) }}</option>
-                                                              @foreach ($jenis as $item)
-                                                                <option value='{{$item -> id_jenis}}'>{{$item -> id_jenis}} - {{$item -> jenis_barang}}</option>
-                                                              @endforeach
-                                                              </select>
-                                                               </div>
+                                                        <label class="col-sm-2 col-form-label" for="name">Id Jenis</label>
+                                                        <div class="col-sm-10">
+                                                            <select class="form-control" id="id_jenis" name="id_jenis">
+                                                                <option value="{{ old('id_jenis', $barang->id_jenis) }}">{{ old('id_jenis', $barang->id_jenis) }} - {{ old('id_jenis', $barang->jenis_barang) }} </option>
+                                                                @foreach ($jenis as $item)
+                                                                    <option value="{{ $item->id_jenis }}">
+                                                                        {{ $item->id_jenis }} - {{ $item->jenis_barang }}
+                                                                    </option>
+                                                                @endforeach
+                                                            </select>
+                                                        </div>
+                                                    </div>
+                                                    <div class="row mb-3">
+                                                        <label class="col-sm-2 col-form-label" for="name">Id User</label>
+                                                        <div class="col-sm-10">
+                                                            <select class="form-control" id="user_id" name="user_id">
+                                                                <option
+                                                                @foreach ($pengguna as $item)
+                                                                    <option value="{{ $item->user_id }}">
+                                                                        {{ $item->user_id }} - {{ $item->nm_user }}
+                                                                    </option>
+                                                                @endforeach
+                                                            </select>
+                                                        </div>
                                                     </div>
 
                                                     <button class="btn btn-success" style="font-size:16px"
@@ -111,7 +126,6 @@
                                     </div>
                                 </div>
 
-
                             </div>
 
                         </div>
@@ -122,3 +136,4 @@
         </section>
     </main>
 @endsection
+

@@ -96,19 +96,8 @@
                                                                 value="{{ old('harga_jual') }}">
                                                         </div>
                                                     </div>
-                                                    {{-- <div class="row mb-3">
-                                                        <label class="col-sm-2 col-form-label" for="name">Id
-                                                            Jenis</label>
-                                                        <div class="col-sm-10">
-                                                            <input autofocus
-                                                                class="form-control @error('id_jenis') is-invalid @enderror"
-                                                                name="id_jenis" required type="text"
-                                                                value="{{ old('id_jenis') }}">
-                                                        </div>
-                                                    </div> --}}
                                                     <div class="row mb-3">
-                                                        <label class="col-sm-2 col-form-label" for="name">Jenis
-                                                            Barang</label>
+                                                        <label class="col-sm-2 col-form-label" for="name">Id Jenis</label>
                                                         <div class="col-sm-10">
                                                             <select class="form-control" id="id_jenis" name="id_jenis">
                                                                 @foreach ($jenis as $item)

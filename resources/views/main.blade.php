@@ -38,7 +38,7 @@
         <!-- ======= Header ======= -->
         <header class="header fixed-top d-flex align-items-center" id="header">
             <div class="d-flex align-items-center justify-content-between">
-                <a class="logo d-flex align-items-center" href="">
+                <a class="logo d-flex align-items-center" href="/home">
                     <img alt="" src="{{ asset('assets/img/logo.png') }}">
                     <span class="d-none d-lg-block">Aplikasi Jual Barang</span>
                 </a>
@@ -114,7 +114,7 @@
                             </a>
                         </li>
                         <li>
-                            <a href="./index.php?aksi=Transaksi&xaksi=Penjualan&yaksi=1">
+                            <a href="{{ url('penjualan') }}">
                                 <i class="bi bi-circle"></i><span>Penjualan</span>
                             </a>
                         </li>

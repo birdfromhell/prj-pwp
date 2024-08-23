@@ -85,7 +85,7 @@
                                                         </div>
                                                     </div>
                                                     <div class="row mb-3">
-                                                        <label class="col-sm-2 col-form-label" for="name">Kode Barang</label>
+                                                        <label class="col-sm-2 col-form-label" for="name">Nama Barang</label>
                                                         <div class="col-sm-10">
                                                             <select class="form-control" id="kode_barang" name="kode_barang">
                                                                 @foreach ($barang as $item)
@@ -97,8 +97,7 @@
                                                         </div>
                                                     </div>
                                                     <div class="row mb-3">
-                                                        <label class="col-sm-2 col-form-label" for="name">User
-                                                            Id</label>
+                                                        <label class="col-sm-2 col-form-label" for="name">Nama User</label>
                                                         <div class="col-sm-10">
                                                             <select class="form-control" id="user_id" name="user_id">
                                                                 @foreach ($user as $item)

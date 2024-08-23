@@ -74,7 +74,7 @@ class BarangController extends Controller
         $pengguna = DB::table('xtb_userx')->get();
         $barang = DB::table('v_barang')->where('kode_barang', $kode_barang)->first();
 
-        return  view('barang/edit', compact('barang', 'jenis','pengguna'));
+        return  view('barang/edit', compact('barang', 'jenis', 'pengguna'));
     }
 
     /**
@@ -90,9 +90,7 @@ class BarangController extends Controller
                     'satuan' => $request->satuan,
                     'stok' => $request->stok,
                     'harga_jual' => $request->harga_jual,
-                    'id_jenis' => $request->id_jenis,
-                    'jenis_barang' => $request->jenis_barang,
-                    'user_id' => $request->user_id
+                    'id_jenis' => $request->id_jenis
                 ]);
             return  redirect('barang')->with('status', 'barang berhasil diubah..');
         } catch (\Illuminate\Database\QueryException $ex) {

@@ -64,8 +64,11 @@ class PembelianController extends Controller
     public function edit(string $nofak_beli)
     {
         // dd('edit');
-        $pembelian = DB::table('tbl_beli_barang')->where('nofak_beli', $nofak_beli)->first();
-        return  view('pembelian/edit', compact('pembelian'));
+        $barang = DB::table('xtb_barang')->get();
+        $suplier = DB::table('xtb_suplier')->get();
+        $pengguna = DB::table('xtb_userx')->get();
+        $pembelian = DB::table('v_pembelian')->where('nofak_beli', $nofak_beli)->first();
+        return  view('pembelian/edit', compact('pembelian', 'barang', 'suplier', 'pengguna'));
     }
 
     /**

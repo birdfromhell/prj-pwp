@@ -61,7 +61,7 @@
                                                         <label class="col-sm-2 col-form-label" for="tgl_beli">Tanggal Beli</label>
                                                         <div class="col-sm-10">
                                                             <input autofocus class="form-control" name="tgl_beli"
-                                                                required type="text"
+                                                                required type="date"
                                                                 value="{{ old('tgl_beli', $pembelian->tgl_beli) }}">
                                                         </div>
                                                     </div>
@@ -81,11 +81,16 @@
                                                         </div>
                                                     </div>
                                                     <div class="row mb-3">
-                                                        <label class="col-sm-2 col-form-label" for="kode_barang">Kode Barang</label>
+                                                        <label class="col-sm-2 col-form-label" for="name">Kode Barang</label>
                                                         <div class="col-sm-10">
-                                                            <input autofocus class="form-control" name="kode_barang" required
-                                                                type="text"
-                                                                value="{{ old('kode_barang', $pembelian->kode_barang) }}">
+                                                            <select class="form-control" id="kode_barang" name="kode_barang">
+                                                                <option value="{{ old('kode_barang', $pembelian->kode_barang) }}">{{ old('kode_barang', $pembelian->kode_barang) }} - {{ old('kode_barang', $pembelian->nama_barang) }} </option>
+                                                                @foreach ($barang as $item)
+                                                                    <option value="{{ $item->kode_barang }}">
+                                                                        {{ $item->kode_barang }} - {{ $item->nama_barang }}
+                                                                    </option>
+                                                                @endforeach
+                                                            </select>
                                                         </div>
                                                     </div>
                                                     <div class="row mb-3">
@@ -97,22 +102,34 @@
                                                         </div>
                                                     </div>
                                                     <div class="row mb-3">
-                                                        <label class="col-sm-2 col-form-label" for="user_id">User
-                                                            Id</label>
+                                                        <label class="col-sm-2 col-form-label" for="name">Id User</label>
                                                         <div class="col-sm-10">
-                                                            <input autofocus class="form-control" name="user_id" required
-                                                                type="text"
-                                                                value="{{ old('user_id', $pembelian->user_id) }}">
+                                                            <select class="form-control" id="user_id" name="user_id">
+                                                                <option value="{{ old('user_id', $pembelian->user_id) }}">{{ old('user_id', $pembelian->user_id) }} - {{ old('user_id', $pembelian->nm_user) }} </option>
+                                                                <option
+                                                                @foreach ($pengguna as $item)
+                                                                    <option value="{{ $item->user_id }}">
+                                                                        {{ $item->user_id }} - {{ $item->nm_user }}
+                                                                    </option>
+                                                                @endforeach
+                                                            </select>
                                                         </div>
                                                     </div>
                                                     <div class="row mb-3">
-                                                        <label class="col-sm-2 col-form-label" for="id_suplier">ID Suplier</label>
+                                                        <label class="col-sm-2 col-form-label" for="name">Id Suplier</label>
                                                         <div class="col-sm-10">
-                                                            <input autofocus class="form-control" name="id_suplier" required
-                                                                type="text"
-                                                                value="{{ old('id_suplier', $pembelian->id_suplier) }}">
+                                                            <select class="form-control" id="id_suplier" name="id_suplier">
+                                                                <option value="{{ old('id_suplier', $pembelian->id_suplier) }}">{{ old('id_suplier', $pembelian->id_suplier) }} - {{ old('id_suplier', $pembelian->nama_suplier) }} </option>
+                                                                <option
+                                                                @foreach ($suplier as $item)
+                                                                    <option value="{{ $item->id_suplier }}">
+                                                                        {{ $item->id_suplier }} - {{ $item->nama_suplier }}
+                                                                    </option>
+                                                                @endforeach
+                                                            </select>
                                                         </div>
                                                     </div>
+                                                    
 
 
 

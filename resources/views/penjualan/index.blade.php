@@ -54,8 +54,8 @@
                                                 <th>Tanggal jual</th>
                                                 <th>Jumlah jual</th>
                                                 <th>Harga jual</th>
-                                                <th>Kode Barang</th>
-                                                <th>User ID</th>
+                                                <th>Nama Barang</th>
+                                                <th>Nama User</th>
                                                 <th>Ubah</th>
                                                 <th>Hapus</th>
                                             </tr>
@@ -68,8 +68,8 @@
                                                     <td>{{ $item->tgl_jual }}</td>
                                                     <td>{{ $item->jumlah_jual }}</td>
                                                     <td>{{ $item->harga_jual }}</td>
-                                                    <td>{{ $item->kode_barang }}</td>
-                                                    <td>{{ $item->user_id }}</td>
+                                                    <td>{{ $item->nama_barang }}</td>
+                                                    <td>{{ $item->nm_user }}</td>
                                                 <td>
                                                         <a class="btn btn-success btn-sm"
                                                             href="{{ url('penjualan/' . $item->nofak_jual . '/edit') }}">
