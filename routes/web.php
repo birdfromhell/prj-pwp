@@ -5,6 +5,7 @@ use App\Http\Controllers\PenjualanController;
 use App\Http\Controllers\BarangController;
 use App\Http\Controllers\JenisController;
 use App\Http\Controllers\SuplierController;
+use App\Http\Controllers\PenggunaController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -59,3 +60,8 @@ Route::delete('penjualan/{nofak_jual}', [PenjualanController::class, 'destroy'])
 Route::get('penjualan/show', [PenjualanController::class, 'show'])->name('penjualan.show');  
 Route::get('penjualan/{nofak_jual}/edit', [PenjualanController::class, 'edit'])->name('penjualan.edit');
 Route::put('penjualan/{nofak_jual}', [PenjualanController::class, 'update'])->name('penjualan.update');
+
+//pengguna
+Route::get('pengguna', [PenggunaController::class, 'index'])->name('pengguna.index');  
+Route::get('pengguna/create', [PenggunaController::class, 'create'])->name('pengguna.create');
+Route::post('pengguna', [PenggunaController::class, 'store'])->name('pengguna.store');

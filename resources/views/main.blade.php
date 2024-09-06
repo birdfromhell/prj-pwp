@@ -176,7 +176,7 @@
                             </a>
                         </li>
                         <li>
-                            <a href="./index.php?aksi=Manajemen&xaksi=Manajemen Akun&yaksi=1">
+                            <a href="/pengguna">
                                 <i class="bi bi-circle"></i><span>Manajemen Akun</span>
                             </a>
                         </li>
