@@ -30,7 +30,7 @@ class PenggunaController extends Controller
         //dd('cccc');
     }
 
-    protected function store(Request $request)
+    public function store(Request $request)
     { 
             try 
             {
